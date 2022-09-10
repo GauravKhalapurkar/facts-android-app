@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/_40sdp">
+            android:layout_marginRight="@dimen/_50sdp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -46,16 +46,16 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_alignParentEnd="true"
+            android:layout_marginVertical="@dimen/_2sdp"
             android:backgroundTint="@color/colorPrimaryDark"
-            app:cardCornerRadius="@dimen/_50sdp"
-            android:layout_marginVertical="@dimen/_2sdp">
+            app:cardCornerRadius="@dimen/_50sdp">
 
             <ImageView
                 android:id="@+id/imgCategoryImg"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_gravity="center"
-                android:src="@drawable/healthy"/>
+                android:src="@drawable/healthy" />
 
         </androidx.cardview.widget.CardView>
 
