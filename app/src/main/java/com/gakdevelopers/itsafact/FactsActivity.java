@@ -1,10 +1,12 @@
 package com.gakdevelopers.itsafact;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class FactsActivity extends AppCompatActivity {
 
@@ -33,6 +36,12 @@ public class FactsActivity extends AppCompatActivity {
     TextView txtCategoryName, txtFact;
 
     ImageView imgCategoryImg;
+
+    CardView cardNext;
+
+    int index = 0;
+
+    ArrayList<String> list, visitedFactsList;
 
     private static ProgressDialog progressDialog;
 
@@ -48,6 +57,8 @@ public class FactsActivity extends AppCompatActivity {
         txtFact = (TextView) findViewById(R.id.txtFact);
 
         imgCategoryImg = (ImageView) findViewById(R.id.imgCategoryImg);
+
+        cardNext = (CardView) findViewById(R.id.cardNext);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -78,7 +89,21 @@ public class FactsActivity extends AppCompatActivity {
                 break;
         }
 
+        list = new ArrayList<>();
+
+        visitedFactsList = SaveToShared.readListFromPref(this);
+
+        if (visitedFactsList == null)
+            visitedFactsList = new ArrayList<>();
+
         getFacts();
+
+        cardNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getTheFact();
+            }
+        });
 
     }
 
@@ -112,7 +137,6 @@ public class FactsActivity extends AppCompatActivity {
     }
 
     private void parseItems(String jsonResponse) {
-        ArrayList<String> list = new ArrayList<>();
 
         try {
             JSONObject jObj = new JSONObject(jsonResponse);
@@ -127,11 +151,35 @@ public class FactsActivity extends AppCompatActivity {
 
             Log.d("MY_FACTS", String.valueOf(list));
 
+            getTheFact();
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         progressDialog.dismiss();
 
+    }
+
+    private void getTheFact() {
+        index = new Random().nextInt(list.size());
+
+        if (!list.isEmpty()) {
+            if (list.size() != visitedFactsList.size()) {
+                if (visitedFactsList.contains(list.get(index))) {
+                    getTheFact();
+                } else {
+                    txtFact.setText(list.get(index));
+                    visitedFactsList.add(list.get(index));
+
+                    SaveToShared.writeListToPref(getApplicationContext(), visitedFactsList);
+
+                    Log.d("MY_VISITED_FACTS", String.valueOf(visitedFactsList));
+                }
+            } else
+                txtFact.setText("More interesting facts are coming soon!");
+        } else {
+            txtFact.setText("More interesting facts are coming soon!");
+        }
     }
 }

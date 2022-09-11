@@ -66,6 +66,7 @@
         android:layout_marginBottom="@dimen/_30sdp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardNext"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_centerVertical="true"
@@ -75,8 +76,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_30sdp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/_30sdp"
                 android:text="N E X T"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp" />
@@ -178,12 +179,12 @@
                 android:id="@+id/txtFact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
-                android:padding="@dimen/_15sdp"
-                android:layout_gravity="center_vertical"
-                android:text="Human teeth are the only part of the body that cannot heal themselves."
                 android:fontFamily="@font/regular"
+                android:padding="@dimen/_15sdp"
+                android:text="A character can be any letter, number, punctuation, special character, or space. Various social media platforms have different character limits for th. Various social media platforms have different u."
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp" />
 
