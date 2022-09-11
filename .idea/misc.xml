@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/Itsafact/app/src/main/res/drawable-v24/custom_bg.xml" value="0.212" />
         <entry key="..\:/AndroidStudio/Itsafact/app/src/main/res/drawable/border.xml" value="0.199" />
+        <entry key="..\:/AndroidStudio/Itsafact/app/src/main/res/drawable/custom_bg.xml" value="0.212" />
         <entry key="..\:/AndroidStudio/Itsafact/app/src/main/res/layout/activity_facts.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/Itsafact/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/Itsafact/app/src/main/res/layout/card_item.xml" value="0.4" />

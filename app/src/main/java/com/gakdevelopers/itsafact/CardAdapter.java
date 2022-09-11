@@ -1,10 +1,13 @@
 package com.gakdevelopers.itsafact;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +42,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "" + cardDataList.getCategoryName(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, FactsActivity.class);
+                intent.putExtra("categoryName", cardDataList.getCategoryName());
+                intent.putExtra("categoryImg", cardDataList.getCategoryImg());
+                context.startActivity(intent);
             }
         });
     }
