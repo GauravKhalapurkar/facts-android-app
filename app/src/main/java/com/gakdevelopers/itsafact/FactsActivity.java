@@ -4,7 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,8 +31,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Random;
 
 public class FactsActivity extends AppCompatActivity {
@@ -96,6 +107,21 @@ public class FactsActivity extends AppCompatActivity {
         if (visitedFactsList == null)
             visitedFactsList = new ArrayList<>();
 
+        if (!isNetworkConnected()) {
+            new androidx.appcompat.app.AlertDialog.Builder(FactsActivity.this)
+                    .setIcon(R.drawable.ic_error_24)
+                    .setTitle("Connection Error")
+                    .setMessage("Make sure you are connected to internet.")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(FactsActivity.this, MainActivity.class));
+                        }
+                    })
+                    .show();
+            return;
+        }
+
         getFacts();
 
         cardNext.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +131,12 @@ public class FactsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
     private void getFacts() {
