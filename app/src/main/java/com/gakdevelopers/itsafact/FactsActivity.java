@@ -39,7 +39,7 @@ public class FactsActivity extends AppCompatActivity {
 
     CardView cardNext;
 
-    int index = 0;
+    int index = 0, counter = 0;
 
     ArrayList<String> list, visitedFactsList;
 
@@ -110,7 +110,7 @@ public class FactsActivity extends AppCompatActivity {
     private void getFacts() {
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, getString(R.string.api) + "?action=get" + categoryName,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, getString(R.string.api) + "?action=getFacts&CategoryName=" + categoryName,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -162,22 +162,41 @@ public class FactsActivity extends AppCompatActivity {
     }
 
     private void getTheFact() {
-        index = new Random().nextInt(list.size());
 
-        if (!list.isEmpty()) {
-            if (list.size() != visitedFactsList.size()) {
-                if (visitedFactsList.contains(list.get(index))) {
-                    getTheFact();
-                } else {
+        /*for (int i = 0; i <= list.size(); i++) {
+            if (!list.isEmpty()) {
+                Log.d("LIST_SIZE", String.valueOf(list.size()));
+                if (!visitedFactsList.contains(list.get(index))) {
                     txtFact.setText(list.get(index));
                     visitedFactsList.add(list.get(index));
 
                     SaveToShared.writeListToPref(getApplicationContext(), visitedFactsList);
 
                     Log.d("MY_VISITED_FACTS", String.valueOf(visitedFactsList));
+
+                    break;
+                } else {
+                    txtFact.setText("More interesting facts are coming soon!");
                 }
-            } else
+            } else {
                 txtFact.setText("More interesting facts are coming soon!");
+            }
+        }*/
+
+        if (!list.isEmpty()) {
+            Log.d("LIST_SIZE", String.valueOf(list.size()));
+            index = new Random().nextInt(list.size());
+
+            if (!visitedFactsList.contains(list.get(index))) {
+                txtFact.setText(list.get(index));
+                visitedFactsList.add(list.get(index));
+
+                SaveToShared.writeListToPref(getApplicationContext(), visitedFactsList);
+
+                Log.d("MY_VISITED_FACTS", String.valueOf(visitedFactsList));
+            } else {
+                getTheFact();
+            }
         } else {
             txtFact.setText("More interesting facts are coming soon!");
         }

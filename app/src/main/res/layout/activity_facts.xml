@@ -184,7 +184,7 @@
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/regular"
                 android:padding="@dimen/_15sdp"
-                android:text="A character can be any letter, number, punctuation, special character, or space. Various social media platforms have different character limits for th. Various social media platforms have different u."
+                android:text="It's a fact!"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp" />
 
