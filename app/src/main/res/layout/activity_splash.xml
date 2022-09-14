@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".SplashActivity">
+
+    <!--Corner designs-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_220sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_minus50sdp"
+            android:layout_marginTop="@dimen/_minus60sdp"
+            android:src="@drawable/corners" />
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_minus60sdp"
+            android:layout_marginEnd="@dimen/_minus60sdp"
+            android:rotation="45"
+            android:src="@drawable/dots" />
+
+        <ImageView
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_220sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/corners"
+            android:rotation="180"
+            android:layout_marginBottom="@dimen/_minus60sdp"
+            android:layout_marginEnd="@dimen/_minus50sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/dots"
+            android:rotation="225"
+            android:layout_marginBottom="@dimen/_minus60sdp"
+            android:layout_marginStart="@dimen/_minus60sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"/>
+
+    </RelativeLayout>
+
+    <!--Video-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_220sdp"
+            android:backgroundTint="@color/colorPrimaryDark"/>
+
+    </RelativeLayout>
+
+    <!--Facts-->
+    <RelativeLayout
+        android:id="@+id/relativeFacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <!--Facts Card-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtFact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/semibolditalic"
+                android:padding="@dimen/_70sdp"
+                android:text="IT'S A FACT!"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_28sdp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--Speaker & Do you know?-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeFacts"
+        android:layout_marginHorizontal="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_minus18sdp">
+
+        <!--Speaker-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:src="@drawable/speaker"/>
+
+        </RelativeLayout>
+
+        <!--Do you know?-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+                android:id="@+id/imgDoYou"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/do_you"
+                android:rotation="2"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"/>
+
+            <ImageView
+                android:id="@+id/imgKnow"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@+id/imgDoYou"
+                android:src="@drawable/know"
+                android:rotation="-2"
+                android:layout_marginTop="@dimen/_minus2sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
