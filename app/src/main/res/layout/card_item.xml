@@ -6,19 +6,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_105sdp"
+        android:layout_height="@dimen/_110sdp"
         android:layout_marginHorizontal="@dimen/_10sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_80sdp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/_50sdp">
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerVertical="true">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
-                android:alpha="0.3"
+                android:backgroundTint="@color/light_pink"
                 app:cardCornerRadius="@dimen/_10sdp">
 
             </androidx.cardview.widget.CardView>
@@ -26,7 +25,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
-                android:paddingLeft="@dimen/_10sdp">
+                android:paddingLeft="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp">
 
                 <TextView
                     android:id="@+id/txtCategoryName"
@@ -36,28 +36,20 @@
                     android:fontFamily="@font/regular"
                     android:text="Random"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_20sdp" />
+                    android:textSize="@dimen/_22sdp" />
+
+                <ImageView
+                    android:id="@+id/imgCategoryImg"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:src="@drawable/healthy" />
 
             </RelativeLayout>
 
         </RelativeLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginVertical="@dimen/_2sdp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            app:cardCornerRadius="@dimen/_50sdp">
-
-            <ImageView
-                android:id="@+id/imgCategoryImg"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:layout_gravity="center"
-                android:src="@drawable/healthy" />
-
-        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 

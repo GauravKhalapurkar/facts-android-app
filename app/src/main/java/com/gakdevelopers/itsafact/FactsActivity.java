@@ -50,7 +50,7 @@ public class FactsActivity extends AppCompatActivity {
 
     CardView cardNext;
 
-    int index = 0, counter = 0;
+    int index = 0;
 
     ArrayList<String> list, visitedFactsList;
 
@@ -194,30 +194,10 @@ public class FactsActivity extends AppCompatActivity {
     }
 
     private void getTheFact() {
-
-        /*for (int i = 0; i <= list.size(); i++) {
-            if (!list.isEmpty()) {
-                Log.d("LIST_SIZE", String.valueOf(list.size()));
-                if (!visitedFactsList.contains(list.get(index))) {
-                    txtFact.setText(list.get(index));
-                    visitedFactsList.add(list.get(index));
-
-                    SaveToShared.writeListToPref(getApplicationContext(), visitedFactsList);
-
-                    Log.d("MY_VISITED_FACTS", String.valueOf(visitedFactsList));
-
-                    break;
-                } else {
-                    txtFact.setText("More interesting facts are coming soon!");
-                }
-            } else {
-                txtFact.setText("More interesting facts are coming soon!");
-            }
-        }*/
+        index = new Random().nextInt(list.size());
 
         if (!list.isEmpty()) {
             Log.d("LIST_SIZE", String.valueOf(list.size()));
-            index = new Random().nextInt(list.size());
 
             if (!visitedFactsList.contains(list.get(index))) {
                 txtFact.setText(list.get(index));
@@ -227,6 +207,10 @@ public class FactsActivity extends AppCompatActivity {
 
                 Log.d("MY_VISITED_FACTS", String.valueOf(visitedFactsList));
             } else {
+                if (visitedFactsList.containsAll(list)) {
+                    txtFact.setText("More interesting facts are coming soon!");
+                    return;
+                }
                 getTheFact();
             }
         } else {
