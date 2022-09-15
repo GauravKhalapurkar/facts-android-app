@@ -243,26 +243,36 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true">
 
-            <ImageView
+            <TextView
                 android:id="@+id/imgDoYou"
                 android:layout_width="@dimen/_110sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/do_you"
-                android:rotation="2"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginHorizontal="@dimen/_5sdp"/>
-
-            <ImageView
-                android:id="@+id/imgKnow"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_below="@+id/imgDoYou"
-                android:src="@drawable/know"
-                android:rotation="-2"
-                android:layout_marginTop="@dimen/_minus2sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_height="@dimen/_44sdp"
                 android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_centerHorizontal="true"/>
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_minus4sdp"
+                android:text="DID YOU"
+                android:textColor="@color/white"
+                android:fontFamily="@font/semibolditalic"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@color/vibrant_pink"/>
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/imgDoYou"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_minus2sdp"
+                android:layout_marginBottom="@dimen/_minus4sdp"
+                android:text="KNOW?"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/semibolditalic"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@color/white"/>
 
         </RelativeLayout>
 
