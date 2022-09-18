@@ -57,6 +57,25 @@
 
     </RelativeLayout>
 
+    <!--Video-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_220sdp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_220sdp"
+            android:backgroundTint="@color/colorPrimaryDark"/>
+
+    </RelativeLayout>
+
     <!--Category Name-->
     <RelativeLayout
         android:id="@+id/relativeCategory"
@@ -102,6 +121,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginVertical="@dimen/_7sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:src="@drawable/healthy" />
 
             </RelativeLayout>
@@ -231,14 +251,16 @@
             android:layout_alignParentStart="true">
 
             <ImageView
+                android:id="@+id/imgSpeaker"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/speaker"/>
+                android:src="@drawable/speaker" />
 
         </RelativeLayout>
 
         <!--Do you know?-->
         <RelativeLayout
+            android:id="@+id/relativeDoYouKnow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true">
@@ -250,13 +272,13 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_minus4sdp"
+                android:background="@color/vibrant_pink"
+                android:fontFamily="@font/semibolditalic"
+                android:gravity="center"
                 android:text="DID YOU"
                 android:textColor="@color/white"
-                android:fontFamily="@font/semibolditalic"
                 android:textSize="@dimen/_20sdp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:background="@color/vibrant_pink"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="@dimen/_100sdp"
@@ -266,13 +288,13 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_minus2sdp"
                 android:layout_marginBottom="@dimen/_minus4sdp"
+                android:background="@color/white"
+                android:fontFamily="@font/semibolditalic"
+                android:gravity="center"
                 android:text="KNOW?"
                 android:textColor="@color/colorPrimaryDark"
-                android:fontFamily="@font/semibolditalic"
                 android:textSize="@dimen/_20sdp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:background="@color/white"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

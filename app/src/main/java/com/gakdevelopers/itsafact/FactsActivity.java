@@ -8,13 +8,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
+
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,6 +27,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -55,6 +61,10 @@ public class FactsActivity extends AppCompatActivity {
     int index = 0, adCounter = 0;
 
     ArrayList<String> list, visitedFactsList;
+
+    VideoView videoView;
+    MediaPlayer mMediaPLayer;
+    int mCurrentVideoPosition;
 
     private static ProgressDialog progressDialog;
 
@@ -102,6 +112,29 @@ public class FactsActivity extends AppCompatActivity {
         progressDialog.setProgress(0);
 
         txtCategoryName.setText(categoryName);
+
+        videoView = (VideoView) findViewById(R.id.videoView);
+
+        YoYo.with(Techniques.Shake).duration(2100).repeat(3000).playOn(findViewById(R.id.imgCategoryImg));
+        YoYo.with(Techniques.Wobble).duration(2100).repeat(3).playOn(findViewById(R.id.imgSpeaker));
+        YoYo.with(Techniques.Flash).duration(2100).repeat(3).playOn(findViewById(R.id.relativeDoYouKnow));
+
+        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video);
+
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mMediaPLayer = mediaPlayer;
+                mMediaPLayer.setLooping(true);
+                if (mCurrentVideoPosition != 0) {
+                    mMediaPLayer.seekTo(mCurrentVideoPosition);
+                    mMediaPLayer.start();
+                }
+            }
+        });
 
         switch (categoryName) {
             case "Random":
@@ -156,7 +189,7 @@ public class FactsActivity extends AppCompatActivity {
 
                 adCounter += 1;
 
-                if (adCounter % 6 == 0) {
+                if (adCounter % 9 == 0) {
                     adCounter = 0;
                     if (mInterstitialAd != null) {
                         mInterstitialAd.show(FactsActivity.this);
@@ -166,6 +199,9 @@ public class FactsActivity extends AppCompatActivity {
                 }
 
                 getTheFact();
+
+                YoYo.with(Techniques.Wobble).duration(2100).repeat(1).playOn(findViewById(R.id.imgSpeaker));
+                YoYo.with(Techniques.Flash).duration(2100).repeat(1).playOn(findViewById(R.id.relativeDoYouKnow));
             }
         });
 

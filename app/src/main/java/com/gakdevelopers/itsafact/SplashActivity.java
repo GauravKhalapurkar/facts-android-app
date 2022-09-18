@@ -3,12 +3,18 @@ package com.gakdevelopers.itsafact;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.VideoView;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,12 +24,20 @@ public class SplashActivity extends AppCompatActivity {
     MediaPlayer mMediaPLayer;
     int mCurrentVideoPosition;
 
+    ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
         videoView = (VideoView) findViewById(R.id.videoView);
+
+        imageView = (ImageView) findViewById(R.id.imageView);
+        //imgSpeaker = (ImageView) findViewById(R.id.imgSpeaker);
+
+        YoYo.with(Techniques.Wobble).duration(2100).repeat(1).playOn(findViewById(R.id.imgSpeaker));
+        YoYo.with(Techniques.Flash).duration(2100).repeat(1).playOn(findViewById(R.id.relativeDoYouKnow));
 
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video);
 
