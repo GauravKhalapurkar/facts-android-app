@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">It\'s a fact!</string>
     <string name="api">https://script.google.com/macros/s/AKfycbyqsUyuvc_q9eDbTNeEK20MZDMhfFl65ybVvP2DoFQN2FYG3yoJnRnVGa27-gI1z-J-sg/exec</string>
-    <string name="admob_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="banner_ad">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_id">ca-app-pub-5919275549611523~8823352820</string>
+    <string name="interstitial_ad">ca-app-pub-5919275549611523/6005617797</string>
+    <string name="banner_ad">ca-app-pub-5919275549611523/5622474418</string>
 </resources>

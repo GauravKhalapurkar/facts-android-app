@@ -121,7 +121,6 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginVertical="@dimen/_7sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:src="@drawable/healthy" />
 
             </RelativeLayout>

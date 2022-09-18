@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
-    android:paddingTop="@dimen/_10sdp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -15,21 +14,20 @@
         android:orientation="vertical"
         android:layout_above="@+id/adView">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="IT'S A FACT!"
-            android:textSize="@dimen/_22sdp"
-            android:textColor="@color/white"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:fontFamily="@font/semibolditalic" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="IT'S A FACT!"-->
+<!--            android:textSize="@dimen/_22sdp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_marginTop="@dimen/_15sdp"-->
+<!--            android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--            android:fontFamily="@font/semibolditalic" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_10sdp"
             android:layoutAnimation="@anim/layout_animation"/>
 
     </LinearLayout>

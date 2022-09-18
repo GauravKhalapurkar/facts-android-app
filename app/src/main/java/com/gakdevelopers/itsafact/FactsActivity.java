@@ -115,7 +115,6 @@ public class FactsActivity extends AppCompatActivity {
 
         videoView = (VideoView) findViewById(R.id.videoView);
 
-        YoYo.with(Techniques.Shake).duration(2100).repeat(3000).playOn(findViewById(R.id.imgCategoryImg));
         YoYo.with(Techniques.Wobble).duration(2100).repeat(3).playOn(findViewById(R.id.imgSpeaker));
         YoYo.with(Techniques.Flash).duration(2100).repeat(3).playOn(findViewById(R.id.relativeDoYouKnow));
 
